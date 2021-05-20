@@ -2,31 +2,160 @@
 
 // Solve the following prompts using recursion.
 
-// 1. Calculate the factorial of a number. The factorial of a non-negative integer n,
-// denoted by n!, is the product of all positive integers less than or equal to n.
-// Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
-// factorial(5); // 120
+// answer with inner function
+
 var factorial = function(n) {
-};
+  if (n < 0) {
+    return null;
+  }
+
+  var factor = 1;
+
+  var innerFunction = function(n) {
+    if (n === 0) {
+      return 1;
+    }
+
+    factor = n * factorial(n - 1);
+  }
+  innerFunction(n);
+
+  return factor;
+}
+
+// answer without inner function
+
+//   // Declare a factor variable
+//   var factor = 1;
+
+//   // if n is negative
+//   if (n < 0) {
+//   // return null
+//   return null;
+// }
+
+//   // if n is 0
+//   if (n === 0) {
+//     // return factor
+//     return factor;
+//   }
+
+//   // factor * factorial(n-1)
+//   factor = n * factorial(n - 1);
+//   // return factor
+//   return factor;
+// };
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  var total = 0;
+
+  if (!Array.isArray(array)) {
+    return array;
+  }
+
+  array.forEach(function(item) {
+    total += sum(item);
+  })
+  return total;
+
+  // // declare variable sum
+  // var total = 0;
+
+  // // declare inner function
+  // var sumRecursion = function(element) {
+  //   // if input is not an array
+  //   if (!Array.isArray(element)) {
+  //     // add input to sum
+  //     return element;
+  //   }
+
+  //   // iterate over the array
+  //   element.forEach(function(item) {
+  //     // create recursive case
+  //     // accumulate the result
+  //     total = total + sumRecursion(item);
+  //   });
+  // }
+  // sumRecursion(array);
+
+  // // return result
+  // return total;
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  var total = 0;
+
+  if (!Array.isArray(array)) {
+    return array;
+  }
+
+  array.forEach(function(item) {
+    total += arraySum(item);
+  })
+  return total;
 };
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  var even;
+
+  if (n < 0) {
+    n = Math.abs(n);
+  }
+
+  var innerFunction = function(n) {
+    if (n === 0) {
+      return true;
+    } else if (n === 1) {
+      return false;
+    }
+
+    even = isEven(n -2);
+  }
+  innerFunction(n);
+
+  return even;
+
+  // var even;
+  // // if n is neagtive
+  // if (n < 0) {
+  //   // take absolute value of n instead
+  //   n = Math.abs(n);
+  // }
+
+  // // (base) if n === 0
+  // if (n === 0) {
+  //   return true;
+  // } else if (n === 1) {
+  //   return false;
+  // }
+
+  // // (recursive) if n >= 2
+  // // n has to be cut down by 2
+  // even = isEven(n - 2);
+  // return even;
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  // declare a sum variable
+  // declare is positive variable
+
+  // if n is negative
+    // declare isPositive variable false
+    // take the absoulte value
+
+  // declare a new n - 1
+  // if n equals zero
+
+  //
+
 };
 
 // 6. Get the integers within a range (x, y).
