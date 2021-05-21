@@ -5,46 +5,45 @@
 // answer with inner function
 
 var factorial = function(n) {
-  if (n < 0) {
-    return null;
-  }
+  // if (n < 0) {
+  //   return null;
+  // }
 
-  var factor = 1;
+  // var factor = 1;
 
-  var innerFunction = function(n) {
-    if (n === 0) {
-      return 1;
-    }
+  // var innerFunction = function(n) {
+  //   if (n === 0) {
+  //     return 1;
+  //   }
 
-    factor = n * factorial(n - 1);
-  }
-  innerFunction(n);
+  //   return factor = n * innerFunction(n - 1);
+  // }
+  // factor = innerFunction(n);
 
-  return factor;
-}
+  // return factor;
 
 // answer without inner function
 
-//   // Declare a factor variable
-//   var factor = 1;
+  // Declare a factor variable
+  var factor = 1;
 
-//   // if n is negative
-//   if (n < 0) {
-//   // return null
-//   return null;
-// }
+  // if n is negative
+  if (n < 0) {
+  // return null
+  return null;
+}
 
-//   // if n is 0
-//   if (n === 0) {
-//     // return factor
-//     return factor;
-//   }
+  // if n is 0
+  if (n === 0) {
+    // return factor
+    return factor;
+  }
 
-//   // factor * factorial(n-1)
-//   factor = n * factorial(n - 1);
-//   // return factor
-//   return factor;
-// };
+  // factor * factorial(n-1)
+  factor = n * factorial(n - 1);
+  // return factor
+  return factor;
+};
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
@@ -101,66 +100,111 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
-  var even;
-
-  if (n < 0) {
-    n = Math.abs(n);
-  }
-
-  var innerFunction = function(n) {
-    if (n === 0) {
-      return true;
-    } else if (n === 1) {
-      return false;
-    }
-
-    even = isEven(n -2);
-  }
-  innerFunction(n);
-
-  return even;
-
   // var even;
-  // // if n is neagtive
+
   // if (n < 0) {
-  //   // take absolute value of n instead
   //   n = Math.abs(n);
   // }
 
-  // // (base) if n === 0
-  // if (n === 0) {
-  //   return true;
-  // } else if (n === 1) {
-  //   return false;
-  // }
+  // var innerFunction = function(n) {
+  //   if (n === 0) {
+  //     return true;
+  //   } else if (n === 1) {
+  //     return false;
+  //   }
 
-  // // (recursive) if n >= 2
-  // // n has to be cut down by 2
-  // even = isEven(n - 2);
+  //   return even = innerFunction(n -2);
+  // }
+  // even = innerFunction(n);
+
   // return even;
+
+  var even;
+  // if n is neagtive
+  if (n < 0) {
+    // take absolute value of n instead
+    n = Math.abs(n);
+  }
+
+  // (base) if n === 0
+  if (n === 0) {
+    return true;
+  } else if (n === 1) {
+    return false;
+  }
+
+  // (recursive) if n >= 2
+  // n has to be cut down by 2
+  even = isEven(n - 2);
+  return even;
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  // declare a sum variable
-  // declare is positive variable
+  var sum = 0;
+  var isPositive = true;
 
-  // if n is negative
-    // declare isPositive variable false
-    // take the absoulte value
+  if (n < 0) {
+    isPositive = false;
+    n = Math.abs(n);
+  }
 
-  // declare a new n - 1
-  // if n equals zero
+  if (n === 0) {
+    return n;
+  }
 
-  //
+  sum = n - 1 + sumBelow(n - 1);
 
+  if (!isPositive) {
+    return -sum;
+  } else {
+    return sum;
+  }
+
+  // // declare a sum variable
+  // var sum = 0;
+  // // declare is positive variable
+  // var isPositive = true;
+
+  // // if n is negative
+  // if (n < 0) {
+  //   // declare isPositive variable false
+  //   isPositive = false;
+  //   // take the absoulte value
+  //   n = Math.abs(n);
+  // }
+
+  // if (n > 0) {
+  //   n = n - 1;
+  // }
+
+  // var innerFunction = function(n) {
+  // // if n equals zero
+  // if (n === 0) {
+  //   return n;
+  // }
+
+  // return sum = n + innerFunction(n - 1);
+  // }
+  // innerFunction(n);
+
+  // // if isPositive is false
+  // if (!isPositive) {
+  //   // return - sum
+  //   return -sum;
+  // // otherwise
+  // } else {
+  //   // return sum
+  //   return sum;
+  // }
 };
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+
 };
 
 // 7. Compute the exponent of a number.
