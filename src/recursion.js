@@ -204,7 +204,46 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var result = [];
 
+  if (x < y) {
+    var min = x;
+    var max = y;
+  } else {
+    min = y;
+    max = x;
+  }
+
+  var newMin = min;
+  var newMax = max;
+
+  // create an inner function
+  var innerFunction = function(input) {
+    // (base) if element is larger than x and smaller than y
+    if (input > newMin && input < newMax) {
+      // push to result
+      result.push(input);
+    }
+    // (recursive)
+    // while x < y ++
+    // result.push(innerFunction(x))
+    if (x < y) {
+      while (min < max) {
+        min++;
+        (innerFunction(min));
+      }
+    } else {
+      while (max > min) {
+        max--;
+        innerFunction(max);
+      }
+    }
+  }
+  // invoke innerFunction
+  innerFunction();
+
+  // return result
+  return result;
 };
 
 // 7. Compute the exponent of a number.
