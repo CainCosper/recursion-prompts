@@ -495,6 +495,40 @@ var countKeysInObj = function(obj, key) {
 // countValuesInObj(obj, 'r') // 2
 // countValuesInObj(obj, 'e') // 1
 var countValuesInObj = function(obj, value) {
+  var count = 0;
+
+  if (typeof(obj) !== 'object') {
+    return 0;
+  }
+
+  for (var key in obj) {
+    if (value === obj[key]) {
+      return 1;
+    } else {
+      count += countValuesInObj(obj[key], value);
+    }
+  };
+
+  return count;
+
+  // var count = 0;
+
+  // var innerFunction = function(obj, value) {
+  //   if (typeof(obj) !== 'object') {
+  //     return 0;
+  //   }
+
+  //   for (var key in obj) {
+  //     if (value === obj[key]) {
+  //       count++;
+  //     } else {
+  //       innerFunction(obj[key], value);
+  //     }
+  //   };
+  // }
+  // innerFunction(obj, value);
+
+  // return count;
 };
 
 // 24. Find all keys in an object (and nested objects) by a provided name and rename
