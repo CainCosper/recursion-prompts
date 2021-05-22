@@ -322,15 +322,11 @@ var powerOfTwo = function(n) {
 
   if (n === 0) {
     return false;
-  }
-
-  // (base) if n === 1
-  if (n === 1) {
-    // var = true
+  } else if (n === 1) {
+    // (base) if n === 1
+    // return true
     return true;
-  }
-
-  if (n % 2 === 1) {
+  } else if (n % 2 === 1) {
     return false;
   }
 
@@ -389,6 +385,35 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  var isPalindrome;
+  var hasSameCase = string.toLowerCase();
+  var length = string.length;
+
+  if (length === 0 || length === 1) {
+    return true;
+  } else if (hasSameCase[0] !== hasSameCase[length - 1]) {
+    return false;
+  }
+
+  return isPalindrome = palindrome(hasSameCase.slice(1, length - 1));
+
+  // var isPalindrome;
+  // var hasSameCase = string.toLowerCase();
+
+  // var innerFunction = function(string) {
+  //   var length = string.length;
+
+  //   if (length === 0 || length === 1) {
+  //     isPalindrome = true;
+  //   } else if (string[0] !== string[length - 1]) {
+  //     isPalindrome = false;
+  //   } else {
+  //     innerFunction(string.slice(1, length - 1));
+  //   }
+  // }
+  // innerFunction(hasSameCase);
+
+  // return isPalindrome;
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
