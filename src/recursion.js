@@ -317,10 +317,74 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+  // declare isPowerOFTwo variable
+  var isPowerOFTwo;
+
+  if (n === 0) {
+    return false;
+  }
+
+  // (base) if n === 1
+  if (n === 1) {
+    // var = true
+    return true;
+  }
+
+  if (n % 2 === 1) {
+    return false;
+  }
+
+  // (recursive) n > 1
+  // function(n/2)
+  return isPowerOfTwo = powerOfTwo(n/2);
+  // return var
+
+  // var isPowerOfTwo;
+
+  // var innerFunction = function(n) {
+  //   if (n === 0) {
+  //     isPowerOFTwo = false;
+  //   } else if (n ===1) {
+  //     isPowerOFTwo = true;
+  //   } else if (n % 2 === 1) {
+  //     isPowerOFTwo = false;
+  //   } else {
+  //     innerFunction(n/2);
+  //   }
+  // }
+  //  innerFunction(n);
+
+  // return isPowerOFTwo;
 };
 
 // 9. Write a function that reverses a string.
 var reverse = function(string) {
+  var containerArray = [];
+
+  if (string.length === 0 || string.length === 1) {
+    return string;
+  }
+
+  for (var i = string.length- 1; i >= 0; i--) {
+    containerArray.push(reverse(string[i]));
+  }
+
+  return containerArray.join('');
+
+  // var containerArray = [];
+
+  // var innerFunction = function(string) {
+  //   if (string.length === 0 || string.length === 1) {
+  //     return string;
+  //   }
+
+  //   for (var i = string.length- 1; i >= 0; i--) {
+  //     containerArray.push(innerFunction(string[i]));
+  //   }
+  // }
+  // innerFunction(string);
+
+  // return containerArray.join('');
 };
 
 // 10. Write a function that determines if a string is a palindrome.
